@@ -25,11 +25,6 @@ public class AdminController {
     }
 
 
-//    public AdminController(UserServiceImpl userServiceImpl, RoleServiceImpl roleServiceImpl) {
-//        this.userServiceImpl = userServiceImpl;
-//        this.roleServiceImpl = roleServiceImpl;
-//    }
-
 
     @GetMapping()
     public String showUsers(ModelMap model) {

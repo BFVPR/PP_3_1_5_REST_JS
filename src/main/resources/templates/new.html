@@ -8,13 +8,13 @@
 <body>
 <form th:method="POST" th:action="@{/admin}" th:object="${users}">
   <div>
-    <label for="name">Name</label>
-    <input type="text" th:field="*{name}" id="name"/>
+    <label for="name">First name</label>
+    <input type="text" th:field="*{firstName}" id="name"/>
 
     <br/>
 
-    <label for="surname">Surname</label>
-    <input type="text" th:field="*{surname}" id="surname"/>
+    <label for="surname">Last name</label>
+    <input type="text" th:field="*{lastName}" id="surname"/>
 
     <br/>
 
@@ -23,8 +23,8 @@
 
     <br/>
 
-    <label for="username">Username</label>
-    <input type="text" th:field="*{username}" id="username"/>
+    <label for="username">Email</label>
+    <input type="text" th:field="*{email}" id="username"/>
 
     <br/>
 
