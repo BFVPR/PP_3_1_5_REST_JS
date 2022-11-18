@@ -33,17 +33,40 @@ public class UserServiceImpl implements UserService {
         return userOptional.orElse(null);
     }
 
+    @Override
+    public User findByEmail(String email) {
+        Optional<User> userOptional =  userRepository.findByEmail(email);
+        return userOptional.orElse(null);
+    }
+
     @Transactional
     public void save(User user) {
         userRepository.save(passwordCoder(user));
     }
 
+//    @Transactional
+//    public void update(int id, User user) {
+//        user.setId(id);
+//        userRepository.save(user);
+//    }
+
     @Transactional
-    public void update(int id, User user) {
-        user.setId(id);
+    public void update(User user) {
+        //Берем старого юзера по id
+        User userDB = findById(user.getId());
+        /*
+        Сравниваем пароли пришедший в параметре и какой был у старого юзера,
+        если не равны и у нового не пустой, то устанавливаем новый, иначе сетим старый
+         */
+        if (!(passwordEncoder.matches(user.getPassword(), userDB.getPassword()))
+                && (user.getPassword() != null)
+                && !(user.getPassword().equals(""))) {
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+        } else {
+            user.setPassword(userDB.getPassword());
+        }
         userRepository.save(user);
     }
-
 
     @Transactional
     public void deleteById(int id) {

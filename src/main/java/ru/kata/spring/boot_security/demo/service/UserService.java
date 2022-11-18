@@ -5,16 +5,19 @@ import ru.kata.spring.boot_security.demo.entity.User;
 import java.util.List;
 
 public interface UserService {
-    public List<User> findAll();
+    List<User> findAll();
 
-    public User findById(int id);
+    User findById(int id);
 
-    public void save(User user);
+    User findByEmail(String email);
 
-    public void update(int id, User user);
+    void save(User user);
 
-    public void deleteById(int id);
+//    void update(int id, User user);
+    void update(User user);
 
-    public User passwordCoder(User user);
+    void deleteById(int id);
+
+    User passwordCoder(User user);
 
 }

@@ -18,12 +18,6 @@ public class Role implements GrantedAuthority {
     @Column(name = "name")
     private String name;
 
-    @Transient
-    @ManyToMany(mappedBy = "roles")
-    @JoinTable(name = "users_roles",
-            joinColumns = @JoinColumn(name = "role_id"),
-            inverseJoinColumns = @JoinColumn(name = "users_id"))
-    private Set<User> users;
 
     public Role() {
 
@@ -54,5 +48,8 @@ public class Role implements GrantedAuthority {
         return getName();
     }
 
-
+    @Override
+    public String toString() {
+        return this.getName().replace("ROLE_", "");
+    }
 }
