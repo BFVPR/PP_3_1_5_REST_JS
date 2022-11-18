@@ -144,9 +144,8 @@
                                                                             </div>
                                                                             <div class="form-group text-center">
                                                                                 <label for="editRoles" class="font-weight-bold">Role</label>
-                                                                                <select class="form-control" name="rolesArr" id="editRoles" size="2" multiple required>
-                                                                                    <option th:value="ROLE_ADMIN" th:text="ADMIN"></option>
-                                                                                    <option th:value="ROLE_USER" th:text="USER"></option>
+                                                                                <select multiple class="form-control" name="roles" id="editRoles" size="2" th:value="${user.roles}" >
+                                                                                    <option th:each="role : ${rolesList}" th:value="${role.id}" th:text="${role.toString()}"/>
                                                                                 </select>
                                                                             </div>
                                                                         </div>
@@ -204,9 +203,8 @@
                                                                             </div>
                                                                             <div class="form-group text-center">
                                                                                 <label for="deleteRoles" class="font-weight-bold">Role </label>
-                                                                                <select readonly class="form-control" name="rolesList" id="deleteRoles" size="2" multiple>
-                                                                                    <option th:value="ROLE_ADMIN" th:text="ADMIN"></option>
-                                                                                    <option th:value="ROLE_USER" th:text="USER"></option>
+                                                                                <select multiple class="form-control" name="roles" id="deleteRoles" size="2" th:value="${user.roles}" >
+                                                                                    <option th:each="role : ${rolesList}" th:value="${role.id}" th:text="${role.toString()}"/>
                                                                                 </select>
                                                                             </div>
                                                                         </div>
@@ -260,9 +258,8 @@
                                                         </div>
                                                         <div class="form-group text-center">
                                                             <label for="roles" class="font-weight-bold">Role </label>
-                                                            <select class="form-control" name="rolesList" id="roles" size="2" multiple>
-                                                                <option th:value="ROLE_ADMIN" th:text="ADMIN"></option>
-                                                                <option th:value="ROLE_USER" th:text="USER"></option>
+                                                            <select multiple class="form-control" name="roles" id="roles" size="2" th:value="${user.roles}" >
+                                                                <option th:each="role : ${rolesList}" th:value="${role.id}" th:text="${role.toString()}"/>
                                                             </select>
                                                         </div>
                                                         <div class="col text-center">
