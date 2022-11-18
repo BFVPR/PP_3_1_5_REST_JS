@@ -1,9 +1,6 @@
 package ru.kata.spring.boot_security.demo.controller;
 
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -13,7 +10,6 @@ import ru.kata.spring.boot_security.demo.service.RoleService;
 import ru.kata.spring.boot_security.demo.service.UserService;
 
 import java.security.Principal;
-import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
@@ -40,7 +36,7 @@ public class AdminController {
 
 
     @GetMapping("/addUser")
-    public String newUserView(Model model) {
+    public String saveUserView(Model model) {
         model.addAttribute("user", new User());
         return "new";
     }
@@ -53,7 +49,7 @@ public class AdminController {
 
 
     @GetMapping("editUser/{id}/")
-    public String editUserView(@PathVariable("id") int id, ModelMap model) {
+    public String updateUserView(@PathVariable("id") int id, ModelMap model) {
         model.addAttribute("user", userService.findById(id));
         return "update";
     }

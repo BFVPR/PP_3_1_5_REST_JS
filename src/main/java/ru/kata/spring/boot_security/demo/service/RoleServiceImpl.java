@@ -12,17 +12,11 @@ import java.util.stream.Collectors;
 @Service
 @Transactional
 public class RoleServiceImpl implements RoleService {
-
-
     private final RoleRepository roleRepository;
-
     public RoleServiceImpl(RoleRepository roleRepository) {
         this.roleRepository = roleRepository;
     }
-
     public List<Role> getRoleList() {
         return roleRepository.findAll();
     }
-
-
 }

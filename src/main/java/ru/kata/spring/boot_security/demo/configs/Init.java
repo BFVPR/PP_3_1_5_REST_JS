@@ -21,16 +21,16 @@ public class Init {
         this.userService = userService;
     }
 
+    //Создаем админа и юзера при старте приложения
     @PostConstruct
-    public void addAdminInDB() {
-        //Создаем пользователей при старте приложения
+    public void addAdminAndUserInDB() {
 
-        Set<Role> roleAdmin = new HashSet<>();
-        roleAdmin.add(new Role("ROLE_ADMIN"));
-        Set<Role> roleUser = new HashSet<>();
-        roleUser.add(new Role("ROLE_USER"));
+        Set<Role> adminRole = new HashSet<>();
+        adminRole.add(new Role("ROLE_ADMIN"));
+        Set<Role> userRole = new HashSet<>();
+        userRole.add(new Role("ROLE_USER"));
 
-        userService.save(new User("Bobby", "Tarantino", 20, "admin@mail.ru", "111", roleAdmin));
-        userService.save(new User("Billy", "Bob", 16, "user@mail.ru", "111", roleUser));
+        userService.save(new User("Bobby", "Tarantino", 20, "admin@mail.ru", "111", adminRole));
+        userService.save(new User("Billy", "Bob", 16, "user@mail.ru", "111", userRole));
     }
 }
