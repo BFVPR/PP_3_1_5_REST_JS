@@ -135,13 +135,18 @@ public class User implements UserDetails {
     }
 
 
+//    @Override
+//    public Collection<? extends GrantedAuthority> getAuthorities() {
+//        Set<SimpleGrantedAuthority> authorities =
+//                getRoles().stream()
+//                        .map(role -> new SimpleGrantedAuthority(role.getAuthority()))
+//                        .collect(Collectors.toSet());
+//        return authorities;
+//    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        Set<SimpleGrantedAuthority> authorities =
-                getRoles().stream()
-                        .map(role -> new SimpleGrantedAuthority(role.getAuthority()))
-                        .collect(Collectors.toSet());
-        return authorities;
+        return getRoles();
     }
 
 
