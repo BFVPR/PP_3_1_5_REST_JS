@@ -6,12 +6,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import ru.kata.spring.boot_security.demo.entity.User;
 
-import javax.transaction.Transactional;
 import java.util.Optional;
 
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
+
     @Query("select u from User u join fetch u.roles where u.email = :email")
     Optional<User> findByEmail(String email);
 

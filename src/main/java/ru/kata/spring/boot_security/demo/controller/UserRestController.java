@@ -78,11 +78,23 @@ public class UserRestController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
+//    @PostMapping(value = "/api/users")
+//    public User addUserAction(@RequestBody User user) {
+//        userService.save(user);
+//        return user;
+//    }
+
     @PutMapping("/api/users")
-    public ResponseEntity<User> updateUser(@RequestBody User user) {
+    public ResponseEntity<User> updateUserAction(@RequestBody User user) {
         userService.update(user);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+//    @PutMapping("/api/users")
+//    public User updateUserAction(@RequestBody User user) {
+//        userService.update(user);
+//        return user;
+//    }
 
     @DeleteMapping("/api/users/{id}")
     public ResponseEntity<User> deleteUser(@PathVariable int id) {

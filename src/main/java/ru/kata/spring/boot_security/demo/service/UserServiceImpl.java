@@ -66,12 +66,12 @@ public class UserServiceImpl implements UserService {
         Теперь сравниваем роли. Если новая роль отличается от старой и не равна null,
         то устанавливаем новую роль, в противном случае оставляем старую.
          */
-        if (userDB.getRoles() != user.getRoles()
-                && (user.getRoles() != null)) {
-            user.setRoles(user.getRoles());;
-        } else {
-            user.setRoles(userDB.getRoles());
-        }
+//        if (userDB.getRoles() != user.getRoles()
+//                && (user.getRoles() != null)) {
+//            user.setRoles(user.getRoles());;
+//        } else {
+//            user.setRoles(userDB.getRoles());
+//        }
         userRepository.save(user);
     }
 
